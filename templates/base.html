@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AlfaFlix</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+</head>
+<body>
+    <nav class="bg-light border-bottom p-3">
+        <a class="me-3" href="/">AlfaFlix</a>
+        {% if session.get('gebruiker_id') %}
+            <a class="me-3" href="/videotheek">Videotheek</a>
+            <a class="me-3" href="/geschiedenis">Mijn geschiedenis</a>
+            <a class="me-3" href="/api/docs">API</a>
+            <form action="/logout" method="post" class="d-inline">
+                <input type="hidden" name="token" value="{{ session['token'] }}">
+                <button class="btn btn-secondary btn-sm">Uitloggen</button>
+            </form>
+        {% else %}
+            <a class="me-3" href="/login">Inloggen</a>
+            <a href="/register">Registreren</a>
+        {% endif %}
+    </nav>
+    <main class="container mt-4">
+        {% for melding in get_flashed_messages() %}
+            <p class="alert alert-info">{{ melding }}</p>
+        {% endfor %}
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

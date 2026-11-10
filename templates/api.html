@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>API-documentatie</h1>
+<p>Log eerst in via de website. Klik bij een actie op Try it out en daarna op Execute.</p>
+<p>Toevoegen: POST /api/films. Bewerken: PATCH. Verwijderen: DELETE.</p>
+<link rel="stylesheet" href="{{ url_for('static', filename='swagger-ui.css') }}">
+<div id="swagger-ui"></div>
+<script src="{{ url_for('static', filename='swagger-ui-bundle.js') }}"></script>
+<script>
+SwaggerUIBundle({
+    url: '/swagger.yaml',
+    dom_id: '#swagger-ui',
+    requestInterceptor: function(aanvraag) {
+        aanvraag.headers['X-CSRF-Token'] = {{ session['token'] | tojson }};
+        return aanvraag;
+    }
+});
+</script>
+{% endblock %}

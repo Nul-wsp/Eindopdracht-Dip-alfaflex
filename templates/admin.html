@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Beheer{% endblock %}
+{% block content %}
+<p class="eyebrow">ALLEEN VOOR BEHEERDERS</p><h1>Collectie beheren</h1><p>Voeg fysieke DVD-exemplaren toe of verwijder beschikbare exemplaren. De handelingen lopen via de API.</p>
+<div class="row g-5 mt-2"><section class="col-lg-5"><h2 class="h4">Nieuwe DVD</h2><form id="create-form" class="panel">
+<label for="title" class="form-label">Titel</label><input id="title" name="title" class="form-control mb-3" required maxlength="150">
+<label for="genre" class="form-label">Genre</label><input id="genre" name="genre" class="form-control mb-3" maxlength="60">
+<label for="year" class="form-label">Jaar</label><input id="year" name="year" type="number" min="1888" max="2100" class="form-control mb-3">
+<label for="tmdb_id" class="form-label">TMDB-film-ID (optioneel)</label><input id="tmdb_id" name="tmdb_id" type="number" min="1" max="2147483647" class="form-control mb-3">
+<label for="description" class="form-label">Omschrijving</label><textarea id="description" name="description" class="form-control mb-3" maxlength="5000"></textarea><button class="btn btn-dark">DVD toevoegen</button></form></section>
+<section class="col-lg-7"><h2 class="h4">DVD's verwijderen</h2><div id="admin-list" class="panel"><p>DVD's laden…</p></div></section></div>
+{% endblock %}

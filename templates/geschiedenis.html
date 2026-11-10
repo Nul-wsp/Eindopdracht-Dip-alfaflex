@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Mijn geschiedenis</h1>
+<p>De tijden worden in UTC opgeslagen.</p>
+<div class="table-responsive"><table class="table table-bordered">
+    <tr><th>Film</th><th>Actie</th><th>Gebruiker</th><th>Tijd (UTC)</th></tr>
+    {% for regel in regels %}
+    <tr><td>{{ regel['title'] }}</td><td>{{ regel['actie'] }}</td><td>{{ regel['gebruikersnaam'] }}</td><td>{{ regel['tijd'] }}</td></tr>
+    {% else %}<tr><td colspan="4">Nog geen handelingen.</td></tr>{% endfor %}
+</table></div>
+{% endblock %}

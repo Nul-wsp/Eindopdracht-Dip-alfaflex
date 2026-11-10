@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Opdracht{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <div class="container mt-5">
+        <h1>Opdrachtbeschrijving</h1>
+        <p>Je werkt bij AlfaFlix, een hippe retro videotheek waar je dvd’s kunt huren. Je baas wil echter met de tijd meegaan en heeft jou gevraagd om een applicatie te ontwikkelen die zowel door klanten als medewerkers kan worden gebruikt.</p>
+        <p>Er is al een basis opgezet, maar je baas komt er niet verder mee. Het is aan jou om deze wensen om te zetten in nieuwe functionaliteit!</p>
+        <p>Daarnaast zorg je ervoor dat de pagina’s er uniform en aantrekkelijk uitzien, gebruik hiervoor bijvoorbeeld Bootstrap.</p>
+        <p>Maak ook gebruik van 'Template Inheritance' om je HTML-templates overzichtelijk en herbruikbaar te maken.</p>
+        
+        <h2>Functionaliteiten</h2>
+        <p>Voeg functionaliteiten toe aan de website. De functionaliteiten met een * zijn verplicht. Verder zijn er twee keuze-functionaliteiten, waarvan je er minimaal één moet maken. Er is ook ruimte voor een of meerdere bonus-functionaliteiten naar eigen inzicht.</p>
+
+        <h3>Verplichte functionaliteiten</h3>
+        <ul>
+            <li><strong>Login functionaliteit* (10 punten)</strong>
+                <ul>
+                    <li>Inloggen met gebruikersnaam & wachtwoord</li>
+                    <li>Registreren van een nieuwe gebruiker</li>
+                    <li>Uitloggen</li>
+                    <li>Een “videotheek” pagina die alleen toegankelijk is voor ingelogde gebruikers</li>
+                </ul>
+            </li>
+            <li><strong>Logging* (10 punten)</strong>
+                <ul>
+                    <li>Actie: Terugbrengen, huren (of reserveren)</li>
+                    <li>Wie voert de actie uit?</li>
+                    <li>Timestamp van de actie</li>
+                </ul>
+            </li>
+            <li><strong>CRUD* (10 punten)</strong>
+                <ul>
+                    <li>DVD’s lenen en terugbrengen</li>
+                    <li>Overzicht van alle dvd’s (uitgeleend en beschikbaar)</li>
+                </ul>
+            </li>
+            <li><strong>API* (10 punten)</strong>
+                <ul>
+                    <li>CRUD-acties via de API</li>
+                    <li>Swagger-documentatie via een swagger.yaml bestand</li>
+                </ul>
+            </li>
+            
+        </ul>
+
+        <h3>Keuzefunctionaliteiten</h3>
+        <p>Je moet minstens één van de onderstaande functionaliteiten kiezen, maar je mag ook beide uitvoeren voor extra punten.</p>
+        <ul>
+            <li><strong>Keuze 1: Reserveren (15 punten)</strong>
+                <ul>
+                    <li>Reserveer actie toevoegen op de website</li>
+                    <li>Reserveren werkt alleen voor ingelogde gebruikers</li>
+                    <li>Reserveren moet ook via de API mogelijk zijn</li>
+                    <li>Gereserveerde dvd’s kunnen niet worden uitgeleend</li>
+                </ul>
+            </li>
+            <li><strong>Keuze 2: Externe API gebruiken (15 punten)</strong>
+                <ul>
+                    <li>Omschrijving en afbeelding van de film ophalen via een externe API</li>
+                    <li>Tonen van omschrijving en afbeelding bij de desbetreffende film</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Bonus-functionaliteiten</h3>
+        <p>Bedenk zelf een functionaliteit en voeg deze toe. Het aantal punten wordt bepaald op basis van technische complexiteit, originaliteit, en de kwaliteit van de uitvoering. Hier zijn enkele suggesties:</p>
+        <ul>
+            <li>Voeg 2FA (twee-factor-authenticatie) toe om de beveiliging van de inlogfunctionaliteit te verbeteren</li>
+            <li>Implementeer gebruikersrollen (admin en gebruiker) met een admin-paneel voor de C en D acties van CRUD</li>
+            <li>Voeg OAuth-authenticatie toe om in te loggen met een extern account</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

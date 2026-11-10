@@ -1,0 +1,23 @@
+Gecontroleerd op 9 november 2026.
+
+Werkend gecontroleerd met een tijdelijke database:
+- Registreren, inloggen en uitloggen.
+- Videotheek en API afgeschermd zonder login.
+- Formulieren met controle van het sessietoken.
+- Lenen, terugbrengen, reserveren en annuleren.
+- Niet opnieuw lenen als een DVD in gebruik is.
+- Een andere klant kan niet jouw DVD retourneren of reservering annuleren.
+- Titel bewerken via website en API.
+- DVD toevoegen, opvragen en verwijderen via API.
+- Logging met gebruiker en tijd.
+- Swagger-bestand gevalideerd.
+
+Ook in Chromium gecontroleerd:
+- Registratie- en inlogformulier.
+- De vier DVD-acties.
+- Titel wijzigen.
+- Toevoegen via Swagger (antwoord 201).
+
+Dit is de eenvoudige versie. De 27 tests uit de eerdere uitgebreide versie
+horen niet bij deze versie. Gebruik de controlelijst in UITLEG.md om op jouw
+computer de handelingen te oefenen.

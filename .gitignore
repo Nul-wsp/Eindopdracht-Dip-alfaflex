@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.db
+sleutel.txt
+.env
+instance/
+original/Eindopdracht.docx

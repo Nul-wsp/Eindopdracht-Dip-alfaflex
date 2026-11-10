@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Registreren</h1>
+<form method="post" style="max-width: 400px;">
+    <input type="hidden" name="token" value="{{ session['token'] }}">
+    <label for="naam" class="form-label">Gebruikersnaam (3 tot 40 tekens)</label>
+    <input id="naam" name="gebruikersnaam" class="form-control mb-3" required minlength="3" maxlength="40" autocomplete="username">
+    <label for="wachtwoord" class="form-label">Wachtwoord (minimaal 8 tekens)</label>
+    <input id="wachtwoord" name="wachtwoord" type="password" class="form-control mb-3" required minlength="8" maxlength="128" autocomplete="new-password">
+    <button class="btn btn-primary">Account maken</button>
+</form>
+{% endblock %}

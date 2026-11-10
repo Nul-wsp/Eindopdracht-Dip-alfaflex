@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block title %}API-documentatie{% endblock %}
+{% block head %}<link rel="stylesheet" href="{{ url_for('static', filename='vendor/swagger-ui.css') }}">{% endblock %}
+{% block content %}<h1>API-documentatie</h1><p>Log eerst in via de website. Swagger gebruikt dezelfde sessie. Een CSRF-token wordt automatisch meegestuurd. Create, Update, Delete en TMDB vereisen een beheerder.</p><a href="{{ url_for('swagger_spec') }}">Download swagger.yaml</a><div id="swagger-ui" class="mt-4"></div>{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='vendor/swagger-ui-bundle.js') }}"></script><script>window.addEventListener('DOMContentLoaded',()=>{SwaggerUIBundle({url:'/swagger.yaml',dom_id:'#swagger-ui',requestInterceptor:async(req)=>{req.credentials='same-origin';if(['POST','PATCH','PUT','DELETE'].includes((req.method||'GET').toUpperCase())){const r=await fetch('/api/csrf');const data=await r.json();req.headers['X-CSRF-Token']=data.csrf_token;}return req;}});});</script>{% endblock %}

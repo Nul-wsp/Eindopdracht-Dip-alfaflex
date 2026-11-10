@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>DVD bewerken</h1>
+<form method="post" style="max-width: 400px;">
+    <input type="hidden" name="token" value="{{ session['token'] }}">
+    <label class="form-label" for="title">Titel</label>
+    <input id="title" name="title" value="{{ film['title'] }}" class="form-control mb-3" required maxlength="150">
+    <button class="btn btn-primary">Opslaan</button>
+    <a href="/videotheek">Terug</a>
+</form>
+{% endblock %}

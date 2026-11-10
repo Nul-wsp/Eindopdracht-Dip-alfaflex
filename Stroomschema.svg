@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1530" viewBox="0 0 1100 1530"><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#314f41"/></marker></defs><rect width="1100" height="1530" fill="#faf8f3"/><style>text{font-family:Arial,sans-serif;font-size:18px;fill:#233d30} .label{font-size:15px;font-weight:bold} .shape{stroke:#314f41;stroke-width:2;fill:#fff} .edge{fill:none;stroke:#314f41;stroke-width:2;marker-end:url(#arrow)}</style><text x="50" y="35" style="font-size:25px;font-weight:bold">AlfaFlix · DVD reserveren</text><text x="50" y="61" style="font-size:15px">15 stappen · API-aanvraag · één fysieke DVD</text>
+<rect class="shape" x="170.0" y="82.0" width="310" height="66" rx="33"/>
+<text x="325" y="121" text-anchor="middle"><tspan x="325" dy="0">1. Start</tspan></text>
+<polygon class="shape" points="188.0,182.0 480.0,182.0 462.0,248.0 170.0,248.0"/>
+<text x="325" y="210" text-anchor="middle"><tspan x="325" dy="0">2. Klant kiest DVD</tspan><tspan x="325" dy="23">en klikt Reserveren</tspan></text>
+<polygon class="shape" fill="#e7efdf" points="325,280 500,345 325,410 150,345"/>
+<text x="325" y="351" text-anchor="middle"><tspan x="325" dy="0">3. Ingelogd?</tspan></text>
+<rect class="shape" x="170.0" y="447.0" width="310" height="66" rx="4"/>
+<text x="325" y="486" text-anchor="middle"><tspan x="325" dy="0">5. Start transactie</tspan></text>
+<rect class="shape" x="170.0" y="547.0" width="310" height="66" rx="4"/>
+<text x="325" y="586" text-anchor="middle"><tspan x="325" dy="0">6. Zoek actieve DVD</tspan></text>
+<polygon class="shape" fill="#e7efdf" points="325,645 500,710 325,775 150,710"/>
+<text x="325" y="716" text-anchor="middle"><tspan x="325" dy="0">7. DVD gevonden?</tspan></text>
+<polygon class="shape" fill="#e7efdf" points="325,815 500,880 325,945 150,880"/>
+<text x="325" y="886" text-anchor="middle"><tspan x="325" dy="0">9. Beschikbaar?</tspan></text>
+<rect class="shape" x="170.0" y="997.0" width="310" height="66" rx="4"/>
+<text x="325" y="1025" text-anchor="middle"><tspan x="325" dy="0">11. Status = gereserveerd</tspan><tspan x="325" dy="23">Eigenaar = huidige gebruiker</tspan></text>
+<rect class="shape" x="170.0" y="1097.0" width="310" height="66" rx="4"/>
+<text x="325" y="1125" text-anchor="middle"><tspan x="325" dy="0">12. Log reserveren,</tspan><tspan x="325" dy="23">gebruiker, DVD en tijd</tspan></text>
+<rect class="shape" x="170.0" y="1197.0" width="310" height="66" rx="4"/>
+<text x="325" y="1236" text-anchor="middle"><tspan x="325" dy="0">13. Commit transactie</tspan></text>
+<polygon class="shape" points="188.0,1297.0 480.0,1297.0 462.0,1363.0 170.0,1363.0"/>
+<text x="325" y="1325" text-anchor="middle"><tspan x="325" dy="0">14. Toon bevestiging</tspan><tspan x="325" dy="23">en vernieuw de collectie</tspan></text>
+<rect class="shape" x="170.0" y="1417.0" width="310" height="66" rx="33"/>
+<text x="325" y="1456" text-anchor="middle"><tspan x="325" dy="0">15. Einde</tspan></text>
+<polygon class="shape" points="663.0,312.0 965.0,312.0 947.0,378.0 645.0,378.0"/>
+<text x="805" y="340" text-anchor="middle"><tspan x="805" dy="0">4. Meld: log eerst in</tspan><tspan x="805" dy="23">HTTP 401</tspan></text>
+<polygon class="shape" points="663.0,677.0 965.0,677.0 947.0,743.0 645.0,743.0"/>
+<text x="805" y="705" text-anchor="middle"><tspan x="805" dy="0">8. Meld: niet gevonden</tspan><tspan x="805" dy="23">HTTP 404</tspan></text>
+<polygon class="shape" points="663.0,847.0 965.0,847.0 947.0,913.0 645.0,913.0"/>
+<text x="805" y="875" text-anchor="middle"><tspan x="805" dy="0">10. Meld: niet beschikbaar</tspan><tspan x="805" dy="23">HTTP 409</tspan></text>
+<path class="edge" d="M325 148 L325 182"/>
+<path class="edge" d="M325 248 L325 280"/>
+<path class="edge" d="M325 410 L325 447"/>
+<path class="edge" d="M325 513 L325 547"/>
+<path class="edge" d="M325 613 L325 645"/>
+<path class="edge" d="M325 775 L325 815"/>
+<path class="edge" d="M325 945 L325 997"/>
+<path class="edge" d="M325 1063 L325 1097"/>
+<path class="edge" d="M325 1163 L325 1197"/>
+<path class="edge" d="M325 1263 L325 1297"/>
+<path class="edge" d="M325 1363 L325 1417"/>
+<text class="label" x="340" y="434">Ja</text><text class="label" x="340" y="795">Ja</text><text class="label" x="340" y="970">Ja</text>
+<path class="edge" d="M500 345 L650 345"/>
+<text class="label" x="550" y="333">Nee</text>
+<path class="edge" d="M965 345 L1040 345 L1040 1450 L480 1450"/>
+<path class="edge" d="M500 710 L650 710"/>
+<text class="label" x="550" y="698">Nee</text>
+<path class="edge" d="M965 710 L1040 710 L1040 1450 L480 1450"/>
+<path class="edge" d="M500 880 L650 880"/>
+<text class="label" x="550" y="868">Nee</text>
+<path class="edge" d="M965 880 L1040 880 L1040 1450 L480 1450"/>
+<text x="750" y="1487" style="font-size:13px">Fout in transactie → rollback, geen logregel</text></svg>

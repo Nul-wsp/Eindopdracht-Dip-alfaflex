@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Inloggen</h1>
+<form method="post" style="max-width: 400px;">
+    <input type="hidden" name="token" value="{{ session['token'] }}">
+    <label for="naam" class="form-label">Gebruikersnaam</label>
+    <input id="naam" name="gebruikersnaam" class="form-control mb-3" required maxlength="40" autocomplete="username">
+    <label for="wachtwoord" class="form-label">Wachtwoord</label>
+    <input id="wachtwoord" name="wachtwoord" type="password" class="form-control mb-3" required maxlength="128" autocomplete="current-password">
+    <button class="btn btn-primary">Inloggen</button>
+</form>
+{% endblock %}

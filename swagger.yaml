@@ -1,0 +1,224 @@
+openapi: 3.0.3
+info:
+  title: AlfaFlix API
+  version: '1.0'
+  description: Log in via /login. Swagger gebruikt dezelfde sessie en stuurt het CSRF-token
+    automatisch mee. Alle ingelogde gebruikers mogen DVD’s toevoegen, bewerken en
+    verwijderen. Deze eenvoudige versie heeft geen rollen. Andere API-clients moeten
+    de sessiecookie bewaren en X-CSRF-Token meesturen; de tokenwaarde staat in de
+    HTML van de ingelogde website.
+paths:
+  /api/films:
+    get:
+      summary: Alle DVD’s bekijken
+      security: &id002
+      - sessie: []
+      responses:
+        '200':
+          description: Gelukt
+          content:
+            application/json:
+              schema:
+                type: array
+                items: &id001
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    title:
+                      type: string
+                    status:
+                      type: string
+                      enum:
+                      - beschikbaar
+                      - uitgeleend
+                      - gereserveerd
+        '400':
+          description: Ongeldige invoer of ongeldig CSRF-token
+        '401':
+          description: Log eerst in
+    post:
+      summary: DVD toevoegen
+      security:
+      - sessie: []
+        csrf: []
+      responses:
+        '201':
+          description: Gelukt
+          content:
+            application/json:
+              schema: *id001
+        '400':
+          description: Ongeldige invoer of ongeldig CSRF-token
+        '401':
+          description: Log eerst in
+      requestBody: &id003
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - title
+              additionalProperties: false
+              properties:
+                title:
+                  type: string
+                  minLength: 1
+                  maxLength: 150
+              example:
+                title: Mijn nieuwe film
+  /api/films/{film_id}:
+    parameters: &id004
+    - name: film_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: Eén DVD bekijken
+      security: *id002
+      responses:
+        '200':
+          description: Gelukt
+          content:
+            application/json:
+              schema: *id001
+        '400':
+          description: Ongeldige invoer of ongeldig CSRF-token
+        '401':
+          description: Log eerst in
+        '404':
+          description: DVD niet gevonden
+    patch:
+      summary: Titel wijzigen
+      security:
+      - sessie: []
+        csrf: []
+      responses:
+        '200':
+          description: Gelukt
+          content:
+            application/json:
+              schema: *id001
+        '400':
+          description: Ongeldige invoer of ongeldig CSRF-token
+        '401':
+          description: Log eerst in
+        '404':
+          description: DVD niet gevonden
+      requestBody: *id003
+    delete:
+      summary: Beschikbare DVD verwijderen
+      security:
+      - sessie: []
+        csrf: []
+      responses:
+        '204':
+          description: Gelukt
+        '400':
+          description: Ongeldige invoer of ongeldig CSRF-token
+        '401':
+          description: Log eerst in
+        '404':
+          description: DVD niet gevonden
+        '409':
+          description: DVD heeft een verkeerde status
+  /api/films/{film_id}/lenen:
+    parameters: *id004
+    post:
+      summary: DVD lenen
+      security:
+      - sessie: []
+        csrf: []
+      responses:
+        '200':
+          description: Gelukt
+          content:
+            application/json:
+              schema: *id001
+        '400':
+          description: Ongeldige invoer of ongeldig CSRF-token
+        '401':
+          description: Log eerst in
+        '404':
+          description: DVD niet gevonden
+        '409':
+          description: DVD heeft een verkeerde status
+  /api/films/{film_id}/terugbrengen:
+    parameters: *id004
+    post:
+      summary: Eigen DVD terugbrengen
+      security:
+      - sessie: []
+        csrf: []
+      responses:
+        '200':
+          description: Gelukt
+          content:
+            application/json:
+              schema: *id001
+        '400':
+          description: Ongeldige invoer of ongeldig CSRF-token
+        '401':
+          description: Log eerst in
+        '404':
+          description: DVD niet gevonden
+        '409':
+          description: DVD heeft een verkeerde status
+        '403':
+          description: DVD is van een andere gebruiker
+  /api/films/{film_id}/reserveren:
+    parameters: *id004
+    post:
+      summary: DVD reserveren
+      security:
+      - sessie: []
+        csrf: []
+      responses:
+        '200':
+          description: Gelukt
+          content:
+            application/json:
+              schema: *id001
+        '400':
+          description: Ongeldige invoer of ongeldig CSRF-token
+        '401':
+          description: Log eerst in
+        '404':
+          description: DVD niet gevonden
+        '409':
+          description: DVD heeft een verkeerde status
+  /api/films/{film_id}/annuleren:
+    parameters: *id004
+    post:
+      summary: Eigen reservering annuleren
+      security:
+      - sessie: []
+        csrf: []
+      responses:
+        '200':
+          description: Gelukt
+          content:
+            application/json:
+              schema: *id001
+        '400':
+          description: Ongeldige invoer of ongeldig CSRF-token
+        '401':
+          description: Log eerst in
+        '404':
+          description: DVD niet gevonden
+        '409':
+          description: DVD heeft een verkeerde status
+        '403':
+          description: DVD is van een andere gebruiker
+components:
+  securitySchemes:
+    sessie:
+      type: apiKey
+      in: cookie
+      name: session
+    csrf:
+      type: apiKey
+      in: header
+      name: X-CSRF-Token

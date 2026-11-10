@@ -1,0 +1,22 @@
+ALFAFLIX - EENVOUDIGE VERSIE
+
+Pak deze versie uit in een NIEUWE map. Meng de bestanden niet met de vorige versie.
+De oude database werkt niet met deze eenvoudige versie.
+
+1. Open de nieuwe map AlfaFlix in Visual Studio Code.
+2. Klik op Terminal > New Terminal.
+3. Voer deze opdrachten één voor één uit:
+
+py -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe app.py
+
+4. Open http://127.0.0.1:5000
+5. Klik op Registreren en maak een account.
+6. Log in.
+
+Stoppen: Ctrl+C in de terminal. Laat de terminal open tijdens gebruik.
+Je hoeft de .venv niet te activeren en geen adminaccount te maken.
+
+De app maakt automatisch drie voorbeeldfilms en een nieuwe database.
+Lees UITLEG.md om de code te begrijpen.

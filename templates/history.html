@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Geschiedenis{% endblock %}
+{% block content %}
+<p class="eyebrow">ALLES OP EEN RIJ</p><h1>{{ 'Alle handelingen' if g.user.role == 'admin' else 'Mijn geschiedenis' }}</h1>
+<p>Huren, terugbrengen, reserveren en annuleren. Tijden worden weergegeven in jouw lokale tijdzone.</p>
+<div class="table-responsive panel"><table class="table"><thead><tr><th>DVD</th><th>Actie</th><th>Uitgevoerd door</th><th>Datum en tijd</th></tr></thead><tbody id="log-list"><tr><td colspan="4">Geschiedenis laden…</td></tr></tbody></table></div>
+{% endblock %}

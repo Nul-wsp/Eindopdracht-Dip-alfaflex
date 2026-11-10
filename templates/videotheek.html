@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Videotheek</h1>
+<p>Je bent ingelogd als {{ session['naam'] }}.</p>
+<div class="table-responsive">
+<table class="table table-bordered">
+    <tr><th>Titel</th><th>Status</th><th>Acties</th></tr>
+    {% for film in films %}
+    <tr>
+        <td>{{ film['title'] }}</td>
+        <td>{{ film['status'] }}</td>
+        <td>
+            {% if film['status'] == 'beschikbaar' %}
+                <form action="/actie/{{ film['id'] }}/lenen" method="post" class="d-inline">
+                    <input type="hidden" name="token" value="{{ session['token'] }}">
+                    <button class="btn btn-primary btn-sm">Lenen</button>
+                </form>
+                <form action="/actie/{{ film['id'] }}/reserveren" method="post" class="d-inline">
+                    <input type="hidden" name="token" value="{{ session['token'] }}">
+                    <button class="btn btn-secondary btn-sm">Reserveren</button>
+                </form>
+            {% elif film['gebruiker_id'] == session['gebruiker_id'] %}
+                {% if film['status'] == 'uitgeleend' %}
+                    <form action="/actie/{{ film['id'] }}/terugbrengen" method="post" class="d-inline">
+                        <input type="hidden" name="token" value="{{ session['token'] }}">
+                        <button class="btn btn-success btn-sm">Terugbrengen</button>
+                    </form>
+                {% else %}
+                    <form action="/actie/{{ film['id'] }}/annuleren" method="post" class="d-inline">
+                        <input type="hidden" name="token" value="{{ session['token'] }}">
+                        <button class="btn btn-warning btn-sm">Annuleren</button>
+                    </form>
+                {% endif %}
+            {% endif %}
+            <a class="btn btn-outline-secondary btn-sm" href="/bewerken/{{ film['id'] }}">Bewerken</a>
+        </td>
+    </tr>
+    {% else %}<tr><td colspan="3">Er zijn geen DVD's.</td></tr>{% endfor %}
+</table>
+</div>
+<p>Een gereserveerde DVD kun je niet lenen. Annuleer eerst de reservering.</p>
+<p>DVD's toevoegen en verwijderen kan via <a href="/api/docs">de API</a>.</p>
+{% endblock %}
